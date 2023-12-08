@@ -11,5 +11,7 @@ import { endpoint } from '@/utils/endpoint'
 import { TbArrowBigRightFilled } from 'react-icons/tb'
 
 export default async function Page() {
-  return <main>quiz page</main>
+  return (
+    <main>quiz page</main>
+  )
 }
