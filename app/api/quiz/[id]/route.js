@@ -11,9 +11,19 @@
 import questions from '@/data/quiz.json'
 import { NextResponse } from 'next/server'
 
-export async function GET() {
+export async function GET(req, {params}) {
   try {
-    return NextResponse.json({})
+    const question = questions.data.find(question => question.id === params.id)
+
+    if(!question) {
+      return new NextResponse('not found', {status: 404})
+    }
+
+    const {correct_answer, ...rest} = question
+
+    return NextResponse.json({
+      question: rest,
+    })
   }
   catch (error) {
     return new NextResponse('internal server error', {status: 500})

@@ -11,7 +11,7 @@ export async function GET() {
   try {
     const random = Math.floor(Math.random() * questions.data.length)
     return NextResponse.json({
-      randomQuestion: questionss.data[random].id,
+      randomQuestion: questions.data[random].id,
     })
   } catch (error) {
     return new NextResponse('internal server error', { status: 500 })

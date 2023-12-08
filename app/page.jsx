@@ -14,7 +14,7 @@ import { getAllCharacters } from '@/lib/characters'
 export default async function Page() {
   const data = await getAllCharacters()
   return (
-    <main className="flex items-center justify-center h-screen bg-black">
+    <main className="flex items-center justify-center h-screen bg-black w-full">
       <Container className="grid grid-cols-2 gap-1 py-5 md:gird-cols-3 lg:grid-cols-4">
         {data?.characters?.map(character => (
           <Link href={`/characters/${character.slug}`} 
