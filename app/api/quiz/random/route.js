@@ -8,5 +8,13 @@ import questions from '@/data/quiz.json'
 import { NextResponse } from 'next/server'
 
 export async function GET() {
-  return NextResponse.json({})
+  try {
+    const random = Math.floor(Math.random() * questions.data.length)
+    return NextResponse.json({
+      randomQuestion: questionss.data[random].id,
+    })
+  } catch (error) {
+    return new NextResponse('internal server error', { status: 500 })
+  }
+  
 }
